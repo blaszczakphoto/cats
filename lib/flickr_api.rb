@@ -1,5 +1,6 @@
 require 'net/https'
 require 'xmlsimple'
+require "photo_from_flickr"
 
 class FlickrApi
 
@@ -17,13 +18,13 @@ class FlickrApi
 		photos = []
 
 		XmlSimple.xml_in(xml)['photos'].first['photo'].each do |photo|
-			photos << Photo.new(
-				farm: photo['farm'], 
-				server: photo['server'], 
-				id: photo['id'], 
-				secret: photo['secret'], 
-				title: photo['title']
-				)
+			photos << {
+							farm: photo['farm'], 
+							server: photo['server'], 
+							id: photo['id'], 
+							secret: photo['secret'], 
+							title: photo['title']
+							}
 		end
 		photos
 	end
@@ -37,13 +38,5 @@ class FlickrApi
 		http.use_ssl = true
 		request = Net::HTTP::Get.new(uri.request_uri)
 		http.request(request).body
-	end
-
-end
-
-class Photo
-	def initialize(params)
-		@url = "https://farm%{farm}.staticflickr.com/%{server}/%{id}_%{secret}.jpg" % params
-		@title = params[:title]
 	end
 end
