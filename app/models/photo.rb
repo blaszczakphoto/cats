@@ -11,11 +11,11 @@ class Photo < ActiveRecord::Base
   end
 
   def self.top_rated_last_week
-  	self.select("photos.id, count(rates.id) as photo_rated").
+  	self.select("photos.id, count(rates.id), photos.url, photos.title").
 		  	joins(:rates).
 		  	where('rates.created_at >= ?', 1.week.ago).
 		  	group("photos.id").
-		  	order("photo_rated DESC").
+		  	order("count(rates.id) DESC").
 		  	limit(3)
   end
 
