@@ -1,0 +1,18 @@
+.top-rated-photos {
+    list-style: none;
+}
+.top-rated-photos li {
+    margin-bottom: 30px;
+}
+
+.top-rated-photos img {
+    height:300px;
+    width: 300px;
+}
+
+.photo-to-rate {width:500px; height:500px;}
+
+.rate-btn {margin: 0 auto; margin-top:5px;}
+
+.photos-container {margin: 0 auto;
+text-align: center;}

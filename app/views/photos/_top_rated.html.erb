@@ -1,0 +1,10 @@
+<h2>Top rated last week</h2>
+<% if !top_rated_last_week.blank? %>
+<ul class="top-rated-photos">
+	<% for item in top_rated_last_week %>
+	<li><img src="<%=item.url%>" height="300" width="300"  alt="<%=item.title%>" class="img-thumbnail"></li>
+	<% end %>
+</ul>
+<% else %>
+<p>Not rated yet</p>
+<% end %>
