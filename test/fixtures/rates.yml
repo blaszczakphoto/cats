@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+1:
+  user_id: qq
+  photo_id: 1
+
+2:
+  user_id: qq
+  photo_id: 1
+
+3:
+  user_id: qq
+  photo_id: 2
+
+4:
+  user_id: qq
+  photo_id: 2
+
+5: 
+  user_id: qq
+  photo_id: 2
+
+6:
+  user_id: qq
+  photo_id: 2
+
+7:
+  user_id: qq
+  photo_id: 3
+
+8:
+  user_id: qq
+  photo_id: 3
+
+9:
+  user_id: qq
+  photo_id: 3
