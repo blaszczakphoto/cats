@@ -7,12 +7,12 @@ module AuthenticatedSystem
 
   private
   def new_user
-    cookies[:user_id] = { :value => generate_id, :expires => 1.year.from_now }
+    cookies.permanent[:user_id] = generate_id
   end
 
   private
   def generate_id
-    rand(8)
+    rand(99999)
   end
 
 end
