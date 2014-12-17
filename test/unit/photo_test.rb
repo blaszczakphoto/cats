@@ -13,7 +13,22 @@ class PhotoTest < ActiveSupport::TestCase
 
   test "return two different photos" do
   	photos = Photo.get_two_random
+    assert !photos.first.blank?
+    assert !photos.last.blank?
   	assert_not_equal photos.first, photos.last
+  end
+
+  test "get two random not return photo when user already have voted all photos" do
+    cookie_id = "abcd"
+    Photo.all.each {|x| Rate.create(user_id: cookie_id, photo_id: x.id)}
+    assert Photo.get_two_random("abcd").empty?
+  end
+
+  test "get two random not return photo when user already have voted without of 1 all photos" do
+    cookie_id = "abcd"
+    Photo.all.each {|x| Rate.create(user_id: cookie_id, photo_id: x.id)}
+    Photo.first.rates.each(&:delete)
+    assert Photo.get_two_random("abcd").empty?
   end
 
   test "top rated last week is ordered by ratings" do
@@ -33,6 +48,7 @@ class PhotoTest < ActiveSupport::TestCase
     top = Photo.top_rated_last_week
     assert old_top == top.first
   end
+
 
 
 end
