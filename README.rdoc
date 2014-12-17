@@ -7,3 +7,5 @@ głosuje który jest lepszy. Aplikacja ma zapamiętywać użytkownika najlepiej 
 prezentować najlepiej oceniane obrazki z ostatniego tygodnia (np. w sidebarze). 
 
 Żeby dodać do bazy danych więcej obrazków z flickr trzeba użyć komendy rake pull_pics[cat].
+
+Działająca aplikacja.
