@@ -1,10 +1,14 @@
 <h1>Which photo do you like more?</h1>
 <div class="row">
+	<% if !@photos.blank? %>
 	<% @photos.each do |photo| %>
 	<div class="col-md-6 photos-container">
 		<img class="photo-to-rate" src="<%=photo.url%>"  alt="<%=photo.title%>"/><br>
 		<%=link_to "I like it",
-		 rates_path(photo_id: photo.id), method: :post, :class => "btn btn-success rate-btn" %>
+		rates_path(photo_id: photo.id), method: :post, :class => "btn btn-success rate-btn" %>
 	</div>
+	<% end %>
+	<% else %>
+	<p>You have already voted for all photos</p>
 	<% end %>
 </div>
