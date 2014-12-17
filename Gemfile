@@ -6,7 +6,7 @@ ruby "1.9.3"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+
 gem 'debugger'
 gem "twitter-bootstrap-rails"
 gem 'xml-simple'
@@ -26,6 +26,11 @@ group :production do
  gem "pg"
  gem 'rails_12factor'
 end
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
 
 gem 'jquery-rails'
 
