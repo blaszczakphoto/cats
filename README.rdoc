@@ -5,3 +5,7 @@ obrazki z Fickr poprzez ichniejsze API do oceny przez użytkowników aplikacji, 
 odwiedzający stronę ma przed sobą prezentowane 2 losowo wybrane obrazki zaciągnięte z Fickr i
 głosuje który jest lepszy. Aplikacja ma zapamiętywać użytkownika najlepiej bez logowania oraz
 prezentować najlepiej oceniane obrazki z ostatniego tygodnia (np. w sidebarze). 
+
+Żeby dodać do bazy danych więcej obrazków z flickr trzeba użyć komendy rake pull_pics[cat].
+
+Działająca aplikacja: https://cats-blaszczak.herokuapp.com/
