@@ -12,7 +12,7 @@ module AuthenticatedSystem
 
   private
   def generate_id
-    rand(99999)
+    rand(99999).to_s
   end
 
 end
