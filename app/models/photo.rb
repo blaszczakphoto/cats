@@ -6,7 +6,7 @@ class Photo < ActiveRecord::Base
 
   def self.get_two_random(cookie_id = "")
     rated = Rate.select(:photo_id).where(user_id: cookie_id).map(&:photo_id)
-    @photos = Photo.where('id NOT IN (?)', rated.blank? ? '' : rated)
+    @photos = rated.empty? ? Photo : Photo.where('id NOT IN (?)', rated)
 
     return [] if @photos.count <= 1
     range = (1..@photos.count).to_a

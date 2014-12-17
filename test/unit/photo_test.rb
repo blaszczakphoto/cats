@@ -15,7 +15,7 @@ class PhotoTest < ActiveSupport::TestCase
   	photos = Photo.get_two_random
     assert !photos.first.blank?
     assert !photos.last.blank?
-  	assert_not_equal photos.first, photos.last
+    assert_not_equal photos.first, photos.last
   end
 
   test "get two random not return photo when user already have voted all photos" do
@@ -29,6 +29,11 @@ class PhotoTest < ActiveSupport::TestCase
     Photo.all.each {|x| Rate.create(user_id: cookie_id, photo_id: x.id)}
     Photo.first.rates.each(&:delete)
     assert Photo.get_two_random("abcd").empty?
+  end
+
+  test "get two random return 2 photos when there is no rates yet" do
+    Rate.all.each(&:delete)
+    assert !Photo.get_two_random("abcd").empty?
   end
 
   test "top rated last week is ordered by ratings" do
