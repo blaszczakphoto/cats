@@ -8,4 +8,4 @@ prezentować najlepiej oceniane obrazki z ostatniego tygodnia (np. w sidebarze).
 
 Żeby dodać do bazy danych więcej obrazków z flickr trzeba użyć komendy rake pull_pics[cat].
 
-Działająca aplikacja.
+Działająca aplikacja: https://cats-blaszczak.herokuapp.com/
